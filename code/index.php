@@ -11,11 +11,39 @@
             return false;
         }
     </script>
+    <style>
+        ol {     
+            counter-reset: item; 
+        } 
+        ol li {     
+            display: block;     
+            position: relative; 
+        } 
+        ol li:before {     
+            content: counters(item, ".")".";     
+            counter-increment: item;     
+            position: absolute;     
+            margin-right: 100%;     
+            right: 10px; /* space between number and text */ 
+        }
+    </style>
 </head>
 <body>
     <Button on onclick="changeURL()">
         Click to change th URL
     </Button>
-    
+    <ol>
+        <li>Первый
+            <ol>
+                <li>Первый первый</li>
+                <li>Первый второй
+                    <ol>
+                        <li>Первый второй первый</li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li>Второй</li>
+    </ol>
 </body>
 </html>
